@@ -1,0 +1,67 @@
+*** EJERCICIO 1 ***
+
+Codigo:
+# obtener lista de paises sin duplicados
+paises = list(set([pais['pais'] for pais in ventas]))
+# calcular totales de ventas por pais e imprimir totales en un diccionario
+total_ventas_por_pais = {}
+for pais in paises:
+    total_ventas_por_pais[pais] = sum([venta['monto'] for venta in ventas if venta['pais'] == pais])
+
+print(total_ventas_por_pais)
+
+Salida:
+{'Guatemala': 265.74, 'México': 230.75, 'Colombia': 200.0}
+
+Explicación:
+Se calcula el total de ventas en 3 países latinoamericanos, siendo Guatemala el país que más ha vendido.
+
+*** EJERCICIO 2 ***
+
+Codigo:
+def resumen(num_lista):
+    if num_lista:
+        dict_resumen = {
+            'promedio': round(sum(num_lista)/len(num_lista), 2),
+            'minimo': min(num_lista),
+            'maximo': max(num_lista)
+        }
+        return dict_resumen
+    else:
+        return None
+
+# crear lista con todos los montos de venta
+montos_ventas = [venta['monto'] for venta in ventas]
+
+resultado1 = resumen(montos_ventas)
+resultado2 = resumen([])
+
+print(f'Resultado 1: {resultado1}')
+print(f'Resultado 2: {resultado2}')
+
+Salida:
+Resultado 1: {'promedio': 116.08, 'minimo': 45.25, 'maximo': 200.0}
+Resultado 2: None
+
+Explicación:
+La función resúmen permite calcular el valor promedio de ventas, así como el valor mínimo y máximo de venta.
+
+*** EJERCICIO 3 ***
+
+Codigo:
+# calculo de montos de venta con IVA para montos superiores a 100
+montos_con_IVA = [round(venta['monto']*1.12, 2) for venta in ventas if venta['monto'] > 100]
+
+print(montos_con_IVA)
+
+Salida:
+[134.96, 224.0, 168.84]
+
+Explicación:
+Se listan los montos con IVA de la lista de ventas únicamente para los montos superiores a 100.
+
+*** EJERCICIO 4 ***
+
+print(a) - imprime la lista [1, 2, 3, 4] porque la igualdad b = a hace que b apunte al mismo objeto de a, por ello al modificar b se modifica a.
+print(agregar(1)) - imprime la lista [1] porque la variable "destino" que está como parámetro de la función "agregar", está vacía.
+print(agregar(2)) - imprime la lista [1, 2] porque la variable "destino" que está como parámetro de la función "agregar" ya no está vacía, tiene almacenada el 1.

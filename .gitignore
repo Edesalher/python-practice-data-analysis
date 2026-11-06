@@ -1,0 +1,16 @@
+# Datos de origen
+/data/
+
+# Archivos generados por Jupyter y Python
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+
+# Entornos virtuales y variables locales
+/.venv/
+/venv/
+/.env
+
+# Configuración local del editor
+/.idea/
+/.vscode/
